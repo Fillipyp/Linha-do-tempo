@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eu e Você</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    
+ <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700i" rel="stylesheet">
+    <style>
+    
+        *{
+            margin: 0;
+            padding: 0;
+        }
+.timeline {
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
+  max-width: 1000px;
+  position: relative;
+}
+      
+.timeline__content-title {
+  font-weight: normal;
+  font-size: 66px;
+  margin: -10px 0 0 0;
+  transition: 0.4s;
+  padding: 0 10px;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+  color: #fff;
+}
+.timeline__content-desc {
+  margin: 0;
+  font-size: 20px;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, .7);
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: normal;
+  line-height: 25px;
+}
+.timeline:before {
+  position: absolute;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  margin-left: -1px;
+  content: "";
+  background: rgba(255, 255, 255, .07);
+}
+@media only screen and (max-width: 767px) {
+  .timeline:before {
+    left: 40px;
+  }
+}
+.timeline-item {
+  padding: 40px 0;
+  opacity: 0.3;
+  filter: blur(2px);
+  transition: 0.5s;
+  box-sizing: border-box;
+  width: calc(50% - 40px);
+  display: flex;
+  position: relative;
+  transform: translateY(-80px);
+}
+.timeline-item:before {
+  content: attr(data-text);
+  letter-spacing: 3px;
+  width: 100%;
+  position: absolute;
+  color: rgba(255, 255, 255, .8);
+  font-size: 14px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  border-left: 2px solid rgba(255, 255, 255, .5);
+  top: 70%;
+  margin-top: -5px;
+  padding-left: 15px;
+  opacity: 0;
+  right: calc(-100% - 56px);
+}
+        @media(max-width:767px){
+            .timeline-item:before{
+  content: attr(data-text);
+  letter-spacing: 3px;
+  width: 100%;
+  position: absolute;
+  color: rgba(255, 255, 255, .8);
+  font-size: 11px;
+  font-family: 'Pathway Gothic One', sans-serif;
+  border-left: 2px solid rgba(255, 255, 255, .5);
+  top: 70%;
+  margin-top: -5px;
+  padding-left: 15px;
+  opacity: 0;
+  right: calc(-100% - 56px);
+}
+        }
+.timeline-item:nth-child(even) {
+  align-self: flex-end;
+}
+.timeline-item:nth-child(even):before {
+  right: auto;
+  text-align: right;
+  left: calc(-100% - 56px);
+  padding-left: 0;
+  border-left: none;
+  border-right: 2px solid rgba(255, 255, 255, .5);
+  padding-right: 15px;
+}
+.timeline-item--active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0px);
+}
+.timeline-item--active:before {
+  top: 50%;
+  transition: 0.3s all 0.2s;
+  opacity: 1;
+}
+.timeline-item--active .timeline__content-title {
+  margin: -50px 0 20px 0;
+}
+@media only screen and (max-width: 767px) {
+  .timeline-item {
+    align-self: baseline !important;
+    width: 100%;
+    padding: 0 30px 150px 80px;
+  }
+  .timeline-item:before {
+    left: 10px !important;
+    padding: 0 !important;
+    top: 50px;
+    text-align: center !important;
+    width: 60px;
+    border: none !important;
+  }
+  .timeline-item:last-child {
+    padding-bottom: 40px;
+  }
+}
+.timeline__img {
+  max-width: 100%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, .4);
+}
+.timeline-container {
+  width: 100%;
+  position: relative;
+  padding: 80px 0;
+  transition: 0.3s ease 0s;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.timeline-container:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+ background: rgba(0,0,0,0.6);
+  content: "";
+}
+.timeline-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 80px;
+  position: relative;
+}
+.timeline-header__title {
+  color: #fff;
+  font-size: 58px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: normal;
+  margin: 0;
+}
+.timeline-header__subtitle {
+  color: rgba(255, 255, 255, .5);
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 16px;
+  letter-spacing: 5px;
+  margin: 10px 0 0 0;
+  font-weight: normal;
+}
+.demo-footer {
+  padding: 60px 0;
+  text-align: center;
+}
+.demo-footer a {
+  color: #999;
+  display: inline-block;
+  font-family: Cardo;
+}
+
+
+
+    </style>
+</head>
+<body>
+<!--     
+    <nav class="navbar navbar-expand-md navbar-light bg-light  py-3 px-5 box-shadow">
+    	<a href="index.html" class="navbar-brand">
+            <img src="img/proagualogo.svg">
+            
+    	</a>
+    	
+    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse"id="navbarSupportedContent">
+        	<ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+        			<a class="nav-link" href="index.html">Home</a>
+        		</li>
+        		<li class="nav-item dropdown">
+        			<a class=" nav-link dropdown-toggle" href="#" id="dropdownMenuButton" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Galeria</a>
+        			<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        				<a class="dropdown-item"href="coleta.html">Coleta</a>
+        				<a class="dropdown-item"href="saneamento.html">Saneamento</a>
+        				<a class="dropdown-item"href="agua.html">Água</a>
+        			</div>
+        		</li>
+        		<li class="nav-item">
+        			<a class="nav-link" href="contato.html">Contato</a>
+        		</li>
+        		<li class="nav-item">
+        			<a class="btn btn-outline-primary ml-md-2" href="timeline.html">Linha do Tempo</a>
+        		</li>
+        	</ul>	
+        </div>
+    </nav> -->
+    
+    <!-- Adicione a tag audio com o atributo autoplay e loop -->
+    <!-- <audio id="myAudio" autoplay loop>
+      <source src="turninpage.mp3" type="audio/mp3">
+      Seu navegador não suporta o elemento de áudio.
+  </audio> -->
+
+  <script>
+  
+    document.addEventListener("click", function() {
+        var audio = document.getElementById("myAudio");
+        
+        // Verifique se a música já está pausada
+        if (audio.paused) {
+            // Inicie a reprodução
+            audio.play().then(() => {
+                // A reprodução foi iniciada com sucesso
+            }).catch(error => {
+                console.error("Erro ao iniciar a reprodução:", error);
+            });
+        }
+    });
+</script>
+     <div class="timeline-container" id="timeline-1">
+  <div class="timeline-header">
+    <h2 class="timeline-header__title linhadotempo">MEUS DIAS COM VOCÊ</h2>
+    <h3 class="timeline-header__subtitle historia">O COMEÇO DE NOSSA HISTORIA</h3>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item" data-text="NOVA AMÉRICA">
+      <div class="timeline__content"><img class="timeline__img" src="img/2.jpeg">
+        <h2 class="timeline__content-title">02/12/2023</h2>
+        <p class="timeline__content-desc">Nosso primeiro encontro. <br> <br>
+          Depois de 6 anos de amizade tive a honra de poder sair com você, uma pessoa mais do que especial na minha vida onde Deus trabalhou o tempo perfeito para cruzarmos nossos caminhos novamente.
+          <br>Jamais me esquecerei desse dia quando fiquei ansioso na entrada do mêtro aguardando sua chegada depois de um looongo tempo, porem quando vi você chegando com aquele sorriso, aquele que só você tem, eu desmoronei por dentro.
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="SUA CASA">
+      <div class="timeline__content"><img class="timeline__img" src="img/7.jpeg"/>
+        <h2 class="timeline__content-title">08/12/2023</h2>
+        <p class="timeline__content-desc">O dia que nossa historia realmente começou. <br> <br>Lembro que especialmente nesse dia eu estava com medo tanto de dar errado quanto de você não aceitar, mas ai fui com a cara e coragem na sua casa, depois de longas horas de conversa pude revelar minha maior surpresa do dia, me toca na alma até hoje a forma como você falou que me ama pela primeira vez assim que te pedi em namoro, após isso nossos dias só foram ficando mais felizes e agradeço a Deus todos os dias por tudo que vivo e vou viver com você</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="IPANEMA">
+      <div class="timeline__content"><img class="timeline__img" src="img/1.jpg"/>
+        <h2 class="timeline__content-title">16/12/2023</h2>
+        <p class="timeline__content-desc">Nosso primeiro passeio namorando. </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="SUA CASA">
+      <div class="timeline__content"><img class="timeline__img" src="img/3.jpeg"/>
+        <h2 class="timeline__content-title">31/12/2023</h2>
+        <p class="timeline__content-desc">Quando eu terminei o ano da melhor maneira que Deus poderia me proporcionar. <br> <br> Em janeiro de 2023 eu não me imaginava estar no Rio de Janeiro, porem devido as circunstancia pude ter o privilegio de voltar para casa e voltar para você, pois como ja te disse antes da minha vinda eu sabia que tinha algo a resolver com você e realmente tive e consegui. Como eu poderia terminar meu ano da melhor maneira se não ao lado da mulher que é minha namorada e será minha futura esposa? Esse foi um dia mais que especial onde pude ver nosso futuro pela frente.</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="MIRANTE DO LEBLON">
+      <div class="timeline__content"><img class="timeline__img" src="img/4.jpg"/>
+        <h2 class="timeline__content-title">06/01/2024</h2>
+        <p class="timeline__content-desc">O dia que eu olhei o mar, você, e as ondas. E pude notar que a felicidade e paz estava ao meu lado. <br> <br>
+          Sabe aqueles dias que não estavam no roteiro? foi esse nosso passeio para o mirante do leblon, não tinhamos nada marcado e acabamos indo somente para passear e olhar a paisagem. O fato desse dia ser extremamente simples e tão cheio de sentimentos é o que me alegra até hoje, pois eu não preciso de grandes eventos para ser feliz ao seu lado, eu estava ali em um mirante olhando a paisagem e vendo o quanto você estava feliz, isso aqueceu meu coração de uma forma que nem as maiores tempestades severas do mundo poderia esfriar em meu peito.
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="MIRANTE DO LEBLON">
+      <div class="timeline__content"><img class="timeline__img" src="img/5.jpg"/>
+        <h2 class="timeline__content-title">06/01/2024</h2>
+        <p class="timeline__content-desc">O seu sorriso em meio a diversão. <br> <br>
+        Assim que saimos do mirante fomos direto a caminho da praia do leblon, decidimos entrar na areia e ir na beira do mar a noite para ver como estava a água. Nesse momento você começou a se divertir tentando entrar na agua e eu tentando te acompanhar sem que os dois caissem kkkkkkkkkkkkkkkk, em meio a diversas tentativas, risos e brincadeiras eu pude notar naquele momento que eu trouxe sua criança interior para fora, aquele sentimento de diversão leve sem precisar de muito.
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="SUA CASA">
+      <div class="timeline__content"><img class="timeline__img" src="img/6.jpg"/>
+        <h2 class="timeline__content-title">14/01/2024
+
+        </h2>
+        <p class="timeline__content-desc">
+          O último dia que eu pude te ver antes da sua viagem. <br> <br>
+          Eu sabia nesse dia que tinha uma grande chance de ser a última vez que eu iria ver você antes da viagem, por isso queria aproveitar o máximo somente ao seu lado fazendo coisas simples que gostamos. Não posso mentir que nesse dia estava com o coração apertado, já sentindo a saudade mesmo que você tenha partido dias depois. Eu chorei, chorei muito, até do seu lado, porém não sei se conseguiu notar. Eu não posso enganar meu próprio coração dizendo que não senti medo pela distância. Nos primeiros dias foram difíceis; você estava longe e com a mente focada na sua viagem. Então, eu realmente senti a falta, o medo e a insegurança, pois mesmo que eu confie minha vida e nosso relacionamento em suas mãos, eu ainda sou ser humano e não pude deixar de sentir. Porém, com o passar dos dias, eu fui percebendo que deveria ser mais compreensível. Você estava em uma viagem para aprender sobre o seu chamado, então, mesmo com a falta de comunicação, eu pude aprender e amadurecer durante essa viagem o quão confiante deve ser nosso relacionamento. Tenho absoluta certeza de que você viveu dias incríveis e, por mais que tivesse algo fora do comum, você me contaria. <br>
+          Quando eu te perguntei se você queria me incluir no seu ministério, eu fiz essa pergunta com muita sabedoria depois de longos dias de viagem sua, e sua resposta não poderia ser melhor. Com suas palavras, você mesmo tem a total vontade, pois seremos uma família. Então, a partir da sua volta, eu quero começar a te acompanhar no seu ministério. Não somente porque quero estar com você, mesmo que isso seja essencial para uma futura família. Mas porque eu amo falar de Deus e ent
+      
+      </div>
+    </div>
+    <!-- <div class="timeline-item" data-text="BRASIL">
+      <div class="timeline__content"><img class="timeline__img" src="img/2007.png"/>
+        <h2 class="timeline__content-title">2007</h2>
+        <p class="timeline__content-desc">
+          Após  intensa  luta  dos  Municípios  pela  titularidade  dos  serviços  de saneamento,  no  dia  05  de   janeiro  de  2007,  foi  sancionada a Lei  Federal  nº 11.445,  chamada  de  Lei  Nacional  do  Saneamento   Básico  –  LNSB,  que  teve vigência  a  partir  de  22  de fevereiro  do  mesmo ano,  estabelecendo as  diretrizes nacionais para o saneamento básico no Brasil. 
+        </p>
+      </div>
+    </div>
+    <div class="timeline-item" data-text="BRASIL">
+      <div class="timeline__content"><img class="timeline__img" src="img/2015.jpg"/>
+        <h2 class="timeline__content-title">2015</h2>
+        <p class="timeline__content-desc">Enfim  com  a  aprovação  do  marco  regulatório,  em  complemento  a  Lei  nº 11.445,  os  municípios  passaram  a  se  estruturar  como  po der  co ncedente. Desde  então,  tem  sido  crescente  a  pa rticipa ção de  emp resas  privadas n o  setor de saneamento (AGEA, 2015).</p>
+      </div>
+    </div>
+  </div> -->
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
